@@ -1,8 +1,12 @@
 {
   "pages": [
-    "pages/home/index",
     "pages/login/index",
-    "pages/mine/index"
+    "pages/home/index",
+    "pages/mine/index",
+    "pages/changePassword/index",
+    "pages/changeFaceImg/index",
+    "pages/FaceEntry/index",
+    "pages/FaceRecognition/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -22,5 +26,10 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "展示给客户看的信息"
+    }
+  }
 }

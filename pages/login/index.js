@@ -1,12 +1,12 @@
 import dxRequest from "../../service/index"
 
 // pages/login/index.js
+
+
 Page({
   data: {
-    sid: "",
-    spwd: "",
     tid: "",
-    tpwd: ""
+    tpwd: "",
   },
 
 
@@ -17,58 +17,42 @@ Page({
       token = JSON.parse(wx.getStorageSync('userInfo')).token;
     }
     if (token.length > 0) {
+
       wx.reLaunch({
         url: '/pages/home/index',
       })
     }
   },
 
-  sidInput(e) {
-    this.setData({
-      sid: e.detail.value
-    })
-  },
 
-  spwdInput(e) {
-    this.setData({
-      spwd: e.detail.value
-    })
-  },
 
-  tidInput(e) {
-    this.setData({
-      tid: e.detail.value
-    })
-  },
-
-  tpwdInput(e) {
-    this.setData({
-      tpwd: e.detail.value
-    })
-  },
-
-  sLogin() {
-    console.log(this.data.sid, this.data.spwd)
+  tLogin() {
     const params = {
-      id: this.data.sid,
-      password: this.data.spwd
+      id: this.data.tid,
+      password: this.data.tpwd
     }
 
-    dxRequest.post('/student/login', params)
+    dxRequest.post('/teacher/login', params)
       .then(res => {
-        // console.log(res)
         if (res.code === '200') {
-          console.log("登录成功")
           wx.setStorageSync("userInfo", JSON.stringify(res.data))
+
           wx.reLaunch({
             url: '/pages/home/index',
           })
+
         } else {
-          console.log(res.message)
+          wx.showToast({
+            title: res.message, // 标题
+            icon: 'error', // 图标类型，默认success
+          })
         }
       })
       .catch(err => {
-        console.log(err)
+        wx.showToast({
+          title: "系统错误", // 标题
+          icon: 'error', // 图标类型，默认success
+        })
       })
   }
 })

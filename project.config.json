@@ -44,7 +44,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.22.1",
   "appid": "wx783aaf977791fdaf",
-  "projectname": "FaceApplet-Teacher",
+  "projectname": "FaceApplet-Student",
   "debugOptions": {
     "hidedInDevtools": []
   },
