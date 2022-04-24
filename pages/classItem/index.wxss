@@ -1,0 +1,55 @@
+/* pages/classItem/index.wxss */
+.flex {
+	display: flex;
+}
+
+.title {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.top {
+	margin: 20rpx 10rpx 40rpx 10rpx;
+
+}
+
+.item {
+	padding: 20rpx 10rpx;
+	background-color: #fff;
+	border-radius: 10px;
+	margin-bottom: 10rpx;
+
+}
+
+.item .left {
+	font-size: 30rpx;
+}
+
+
+.item .className {
+	font-size: 20px;
+	margin: 10px;
+}
+
+.item .classStatus {
+	margin: 5px 10px;
+	color: #409EFF;
+}
+
+.item .classType {
+	margin: 5px 10px;
+	color: #67C23A;
+}
+
+.btn {
+	background-color: #409EFF;
+	color: #fff;
+
+	margin-bottom: 10px;
+
+}
+
+.end {
+	background-color: red;
+}

@@ -1,14 +1,40 @@
-<button bindtap="test">打卡1</button>
+<!-- <button bindtap="test">打卡1</button>
 <button bindtap="test2">打卡2</button>
 
 <button bindtap="btn">测距</button>
 
-<button bindtap="Face">人脸识别</button>
+<button bindtap="Face">人脸识别</button> -->
 
-<button bindtap="createClass">创建班级</button>
+<view class="top">
+	<input placeholder="请输入班级名称" class="input" bindinput="classNameInput" value="{{classParams.name}}"></input>
 
-<van-dialog use-slot title="创建班级" show="{{ show }}" showCancelButton showConfirmButton bind:confirm="onConfirm" bind:close="onClose">
+	<view class="flex">
+		<input placeholder="课程状态" disabled bindtap="selectStatus" class="selection" value="{{classParams.statusName}}"></input>
 
-	<input placeholder="请输入班级名称" class="input" model:value="{{className}}"></input>
+		<input placeholder="班级类型" disabled bindtap="selectType" class="selection" value="{{classParams.typeName}}"></input>
 
-</van-dialog>
+		<button class="btn" bindtap="getClasses">查询</button>
+	</view>
+</view>
+
+<view class="bottom">
+
+	<view class="item" wx:for="{{classes}}" wx:key="id" bindtap="itemClick" data-item="{{item}}">
+
+		<view class="left">
+			<view class="className">{{item.name}}</view>
+
+			<view class="flex">
+				<view class="classStatus">{{item.end == 0 ? "进行中" : "已结束"}}</view>
+				<view class="classType">{{item.type == 0 ? "线下课堂": item.type == 1 ? "线上课堂" : "课外团体实践活动"}}</view>
+			</view>
+
+		</view>
+
+
+		<view class="icon">
+			<image class="icon" src="/assets/images/icons/arrow-right.png"></image>
+		</view>
+
+	</view>
+</view>

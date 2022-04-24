@@ -1,0 +1,25 @@
+<view class="top">
+
+	<view class="item">
+
+		<view class="left">
+			<view class="title">
+				<view class="className">{{item.name}}</view>
+				<view class="className">{{item.code}}</view>
+			</view>
+
+			<view class="flex">
+				<view class="classStatus">{{item.end == 0 ? "进行中" : "已结束"}}</view>
+				<view class="classType">{{item.type == 0 ? "线下课堂": item.type == 1 ? "线上课堂" : "课外团体实践活动"}}</view>
+			</view>
+
+		</view>
+
+	</view>
+</view>
+
+<button class="btn">发布打卡</button>
+<button class="btn">考勤管理</button>
+<button class="btn">请假管理</button>
+
+<button class="end" wx:if="{{item.end == 0}}" bindtap="endClass">结束课程</button>

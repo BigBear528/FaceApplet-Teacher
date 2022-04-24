@@ -5,16 +5,29 @@ Page({
 
 
   data: {
+    userInfo: {},
     lat1: '',
     lng1: '',
     lat2: '',
     lng2: '',
-    show: false,
-    className: '',
+    classParams: {
+      end: 0,
+      statusName: '进行中',
+      name: "",
+      type: 0,
+      typeName: '线下课堂'
+    },
+    classes: []
   },
 
   onLoad: function (options) {
+    const userInfo = JSON.parse(wx.getStorageSync('userInfo'))
+    userInfo.face = ''
+    this.setData({ userInfo: userInfo })
+  },
 
+  onShow: function () {
+    this.getClasses()
   },
 
   test() {
@@ -78,65 +91,96 @@ Page({
     })
   },
 
-
-  createClass() {
-    this.setData({ className: '' })
-    this.setData({ show: true })
+  classNameInput(e) {
+    this.setData({ 'classParams.name': e.detail.value })
   },
 
-  onConfirm() {
-    if (this.data.className == '') {
-      wx.showToast({
-        title: '请输入班级名称',
-        // icon: 'none',
-        icon: 'error'
-      })
-    } else {
-      const userInfo = JSON.parse(wx.getStorageSync('userInfo'));
+  selectStatus() {
+    wx.showActionSheet({
+      itemList: ['进行中', '已结束'],
+      success: (res) => {
+        if (res.tapIndex == 0) {
+          this.setData({ 'classParams.end': 0 })
+          this.setData({ 'classParams.statusName': "进行中" })
+        }
 
-      let timestamp = Date.parse(new Date());
-      timestamp = timestamp / 1000;
+        if (res.tapIndex == 1) {
+          this.setData({ 'classParams.end': 1 })
+          this.setData({ 'classParams.statusName': "已结束" })
 
+        }
 
-      const params = {
-        code: timestamp,
-        name: this.data.className,
-        tid: userInfo.id
+        if (res.tapIndex == 2) {
+          this.setData({ 'classParams.type': 2 })
+          this.setData({ 'classParams.typeName': "课外团体实践活动" })
+        }
+      },
+      fail(res) {
+        console.log(res.errMsg)
       }
+    })
+  },
 
-      dxRequest.post('/class/createClass', params)
-        .then(res => {
-          if (res.code === '200') {
-            if (res.data) {
-              wx.showToast({
-                title: '创建成功'
-              })
-            } else {
-              wx.showToast({
-                title: '创建失败',
-                icon: 'error'
-              })
-            }
-          } else {
-            wx.showToast({
-              title: '创建失败',
-              icon: 'error'
-            })
-          }
-        }).catch(err => [
-          wx.showToast({
-            title: '创建失败',
-            icon: 'error'
-          })
-        ])
+  selectType() {
+    wx.showActionSheet({
+      itemList: ['线下课堂', '线上课堂', '课外团体实践活动'],
+      success: (res) => {
+        if (res.tapIndex == 0) {
+          this.setData({ 'classParams.type': 0 })
+          this.setData({ 'classParams.typeName': "线下课堂" })
+        }
+
+        if (res.tapIndex == 1) {
+          this.setData({ 'classParams.type': 1 })
+          this.setData({ 'classParams.typeName': "线上课堂" })
+
+        }
+
+        if (res.tapIndex == 2) {
+          this.setData({ 'classParams.type': 2 })
+          this.setData({ 'classParams.typeName': "课外团体实践活动" })
+        }
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+
+  getClasses() {
+    const params = {
+      end: this.data.classParams.end,
+      name: this.data.classParams.name,
+      tid: this.data.userInfo.id,
+      type: this.data.classParams.type
     }
+
+    dxRequest.post("/class/getClasses", params)
+      .then(res => {
+        if (res.code === '200') {
+          this.setData({ classes: res.data })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: "error"
+          })
+        }
+      }).catch(err => {
+        wx.showToast({
+          title: '系统错误',
+          icon: "error"
+        })
+      })
+
   },
 
-  onClose() {
+  itemClick(event) {
+    const item = event.currentTarget.dataset.item
+    wx.navigateTo({
+      url: `/pages/classItem/index?item=${JSON.stringify(item)}`
+    })
 
-
-    this.setData({ show: false });
-  },
+  }
 
 
 })

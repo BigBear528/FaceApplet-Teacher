@@ -28,8 +28,8 @@
         },
         {
           "name": "",
-          "pathName": "pages/FaceRecognition/index",
-          "query": "",
+          "pathName": "pages/classItem/index",
+          "query": "item=%7B%22cid%22%3A10%2C%22name%22%3A%22%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%22%2C%22tid%22%3A%22t1001%22%2C%22end%22%3A0%2C%22code%22%3A%221650694777%22%2C%22type%22%3A0%7D",
           "scene": null,
           "launchMode": "default"
         }

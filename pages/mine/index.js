@@ -1,4 +1,5 @@
 // pages/mine/index.js
+var app = getApp()
 Page({
 
   data: {
@@ -12,6 +13,7 @@ Page({
   init() {
     // 从storage中获取userInfo
     let userInfo = JSON.parse(wx.getStorageSync('userInfo'))
+    
     this.setData({
       userInfo: userInfo
     })
@@ -20,6 +22,7 @@ Page({
 
   logout() {
     wx.removeStorageSync('userInfo')
+    app.globalData.selected = 0
     wx.reLaunch({
       url: '/pages/login/index',
     })

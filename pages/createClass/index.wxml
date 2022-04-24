@@ -1,0 +1,12 @@
+<view class="top">
+	<input placeholder="请输入班级名称" class="input" model:value="{{className}}"></input>
+
+
+	<input placeholder="请选择班级类型" disabled bindtap="selectType" class="input" value="{{classTypeName}}"></input>
+
+
+</view>
+
+<view class="bottom">
+	<button class="btn" bindtap="createClass">创建班级</button>
+</view>
