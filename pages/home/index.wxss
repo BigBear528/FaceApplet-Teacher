@@ -1,4 +1,8 @@
 /* pages/home/index.wxss */
+page {
+	padding-bottom: 80px;
+}
+
 .top {
 	position: fixed;
 	top: 5px;

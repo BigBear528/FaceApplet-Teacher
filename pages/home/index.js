@@ -31,7 +31,6 @@ Page({
   },
 
   test() {
-
     wx.chooseLocation({
       success: res => {
         console.log('纬度1 ' + res.latitude)

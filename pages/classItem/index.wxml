@@ -5,7 +5,7 @@
 		<view class="left">
 			<view class="title">
 				<view class="className">{{item.name}}</view>
-				<view class="className">{{item.code}}</view>
+				<view class="classCode">{{item.code}}</view>
 			</view>
 
 			<view class="flex">
@@ -18,8 +18,42 @@
 	</view>
 </view>
 
-<button class="btn">发布打卡</button>
+<button class="btn" bindtap="clock">发布打卡</button>
 <button class="btn">考勤管理</button>
 <button class="btn">请假管理</button>
-
 <button class="end" wx:if="{{item.end == 0}}" bindtap="endClass">结束课程</button>
+
+
+<!-- 发布打卡dialog -->
+<van-dialog use-slot title="发布打卡" show="{{ showClockDialog  }}" showCancelButton showConfirmButton bind:close="onClockClose" bind:confirm="onClockConfirm">
+	<view class="list">
+		<view class="title">开始时间</view>
+		<input class="input" placeholder="请输入开始时间" value="{{sTime}}" bindtap="showStartTime"></input>
+	</view>
+
+
+	<view class="list">
+		<view class="title">结束时间</view>
+		<input class="input" placeholder="请输入结束时间" value="{{eTime}}" bindtap="showEndTime"></input>
+	</view>
+
+	<view class="list">
+		<view class="title">打卡地点</view>
+		<input class="input" placeholder="请选择打卡地点" value="{{location}}" bindtap="chooseLocation"></input>
+	</view>
+
+	<view class="list" style="position: relative;">
+		<view class="title">打卡范围</view>
+		<input class="input" placeholder="请选择打卡范围" value="{{radius}}" bindinput="inputRadius"></input>
+		<span style="position: absolute; top: 0; right: 0; display: table-cell; white-space: nowrap; padding: 5px 20px;">米</span>
+	</view>
+</van-dialog>
+
+
+<van-popup show="{{showStartTime}}" z-index="9999" position="bottom">
+	<van-datetime-picker type="datetime" value="{{startTime}}" bind:input="onInputStartTime" bind:confirm="startTimeConfirm" bind:cancel="startTimeCancel"></van-datetime-picker>
+</van-popup>
+
+<van-popup show="{{showEndTime}}" z-index="9999" position="bottom">
+	<van-datetime-picker type="datetime" value="{{endTime}}" bind:input="onInputEndTime" bind:confirm="endTimeConfirm" bind:cancel="endTimeCancel"></van-datetime-picker>
+</van-popup>

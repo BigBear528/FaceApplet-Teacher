@@ -1,4 +1,8 @@
 /* pages/mine/index.wxss */
+page {
+	padding-bottom: 80px;
+}
+
 .logout {
 	background-color: red;
 	margin-top: 50rpx;

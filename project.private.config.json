@@ -1,39 +1,31 @@
 {
-  "setting": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "",
-          "pathName": "pages/mine/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/FaceEntry/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/classItem/index",
-          "query": "item=%7B%22cid%22%3A10%2C%22name%22%3A%22%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%22%2C%22tid%22%3A%22t1001%22%2C%22end%22%3A0%2C%22code%22%3A%221650694777%22%2C%22type%22%3A0%7D",
-          "scene": null,
-          "launchMode": "default"
-        }
-      ]
-    }
-  }
+	"setting": {},
+	"condition": {
+		"miniprogram": {
+			"list": [
+				{
+					"name": "",
+					"pathName": "pages/mine/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/FaceEntry/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/classItem/index",
+					"query": "item=%7B%22cid%22%3A10%2C%22name%22%3A%22%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%22%2C%22tid%22%3A%22t1001%22%2C%22end%22%3A0%2C%22code%22%3A%221650694777%22%2C%22type%22%3A0%7D",
+					"launchMode": "default",
+					"scene": null
+				}
+			]
+		}
+	},
+	"description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

@@ -32,6 +32,12 @@
 	margin: 10px;
 }
 
+.item .classCode {
+	font-size: 20px;
+	margin: 10px;
+	color: #606266;
+}
+
 .item .classStatus {
 	margin: 5px 10px;
 	color: #409EFF;
@@ -52,4 +58,25 @@
 
 .end {
 	background-color: red;
+}
+
+.list {
+	display: flex;
+	margin: 20rpx;
+}
+
+.list .title {
+	width: 30%;
+	padding: 10rpx 0;
+}
+
+.list .input {
+	background-color: #efefef;
+	padding: 10rpx 20rpx;
+	border-radius: 10rpx;
+}
+
+.list .right {
+	padding: 10rpx 5rpx;
+	color: aqua;
 }
