@@ -201,5 +201,13 @@ Page({
 	inputRadius(e) {
 		this.setData({ radius: e.detail.value })
 
+	},
+
+	leaveManagement(){
+
+		wx.navigateTo({
+			url: `/pages/LeaveManagement/index?item=${JSON.stringify(this.data.item)}`,
+		})
+
 	}
 })

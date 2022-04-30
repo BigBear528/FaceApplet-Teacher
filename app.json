@@ -8,7 +8,8 @@
 		"pages/FaceEntry/index",
 		"pages/FaceRecognition/index",
 		"pages/createClass/index",
-		"pages/classItem/index"
+		"pages/classItem/index",
+		"pages/LeaveManagement/index"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

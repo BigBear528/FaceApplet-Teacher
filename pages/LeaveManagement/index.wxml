@@ -1,0 +1,16 @@
+<view class="top">
+
+	<view class="item" wx:for="{{leaveList}}" wx:key="index" bindtap="clickItem" data-item="{{item}}">
+		<view class="left">
+			<view class="title">
+				<view class="className">{{item.studentName}}</view>
+				<view class="classCode">{{item.time}}</view>
+			</view>
+
+			<view class="flex">
+				<view class="classStatus">{{item.reason }}</view>
+			</view>
+		</view>
+
+	</view>
+</view>

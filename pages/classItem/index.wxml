@@ -19,8 +19,8 @@
 </view>
 
 <button class="btn" bindtap="clock">发布打卡</button>
-<button class="btn">考勤管理</button>
-<button class="btn">请假管理</button>
+<button class="btn" >考勤管理</button>
+<button class="btn" bindtap="leaveManagement">请假管理</button>
 <button class="end" wx:if="{{item.end == 0}}" bindtap="endClass">结束课程</button>
 
 
@@ -28,18 +28,18 @@
 <van-dialog use-slot title="发布打卡" show="{{ showClockDialog  }}" showCancelButton showConfirmButton bind:close="onClockClose" bind:confirm="onClockConfirm">
 	<view class="list">
 		<view class="title">开始时间</view>
-		<input class="input" placeholder="请输入开始时间" value="{{sTime}}" bindtap="showStartTime"></input>
+		<input class="input" placeholder="请输入开始时间" value="{{sTime}}" bindtap="showStartTime" disabled></input>
 	</view>
 
 
 	<view class="list">
 		<view class="title">结束时间</view>
-		<input class="input" placeholder="请输入结束时间" value="{{eTime}}" bindtap="showEndTime"></input>
+		<input class="input" placeholder="请输入结束时间" value="{{eTime}}" bindtap="showEndTime" disabled></input>
 	</view>
 
 	<view class="list">
 		<view class="title">打卡地点</view>
-		<input class="input" placeholder="请选择打卡地点" value="{{location}}" bindtap="chooseLocation"></input>
+		<input class="input" placeholder="请选择打卡地点" value="{{location}}" bindtap="chooseLocation" disabled></input>
 	</view>
 
 	<view class="list" style="position: relative;">

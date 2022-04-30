@@ -1,0 +1,82 @@
+/* pages/classItem/index.wxss */
+.flex {
+	display: flex;
+}
+
+.title {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.top {
+	margin: 20rpx 10rpx 40rpx 10rpx;
+
+}
+
+.item {
+	padding: 20rpx 10rpx;
+	background-color: #fff;
+	border-radius: 10px;
+	margin-bottom: 10rpx;
+
+}
+
+.item .left {
+	font-size: 30rpx;
+}
+
+
+.item .className {
+	font-size: 20px;
+	margin: 10px;
+}
+
+.item .classCode {
+	font-size: 20px;
+	margin: 10px;
+	color: #606266;
+}
+
+.item .classStatus {
+	margin: 5px 10px;
+	color: #409EFF;
+}
+
+.item .classType {
+	margin: 5px 10px;
+	color: #67C23A;
+}
+
+.btn {
+	background-color: #409EFF;
+	color: #fff;
+
+	margin-bottom: 10px;
+
+}
+
+.end {
+	background-color: red;
+}
+
+.list {
+	display: flex;
+	margin: 20rpx;
+}
+
+.list .title {
+	width: 30%;
+	padding: 10rpx 0;
+}
+
+.list .input {
+	background-color: #efefef;
+	padding: 10rpx 20rpx;
+	border-radius: 10rpx;
+}
+
+.list .right {
+	padding: 10rpx 5rpx;
+	color: aqua;
+}
