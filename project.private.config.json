@@ -12,8 +12,8 @@
 				},
 				{
 					"name": "",
-					"pathName": "pages/FaceEntry/index",
-					"query": "",
+					"pathName": "pages/AttendanceManagement/index",
+					"query": "item=%7B%22cid%22%3A30%2C%22name%22%3A%22HTML%22%2C%22tid%22%3A%22t1001%22%2C%22end%22%3A0%2C%22code%22%3A%221651200229%22%2C%22type%22%3A0%7D",
 					"launchMode": "default",
 					"scene": null
 				},

@@ -83,7 +83,7 @@ Page({
 				icon: 'none'
 			})
 			return
-		} else if (this.data.location == '' || this.data.radius == '') {
+		} else if ((this.data.location == '' || this.data.radius == '') && this.data.type == 0) {
 			wx.showToast({
 				title: '请正确填写数据',
 				icon: 'none'
@@ -111,14 +111,12 @@ Page({
 						wx.showToast({
 							title: '发布成功',
 						})
-
 					} else {
 						wx.showToast({
 							title: '发布失败',
 							icon: 'error'
 						})
 					}
-
 				}).catch(err => {
 					wx.showToast({
 						title: '系统错误',
@@ -203,11 +201,17 @@ Page({
 
 	},
 
-	leaveManagement(){
+	leaveManagement() {
 
 		wx.navigateTo({
 			url: `/pages/LeaveManagement/index?item=${JSON.stringify(this.data.item)}`,
 		})
 
+	},
+
+	attendanceManagement() {
+		wx.navigateTo({
+			url: `/pages/AttendanceManagement/index?item=${JSON.stringify(this.data.item)}`,
+		})
 	}
 })

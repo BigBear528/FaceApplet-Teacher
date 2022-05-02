@@ -1,0 +1,36 @@
+<view class="top">
+	考勤记录
+</view>
+
+
+<view class="container">
+	<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+
+
+
+<view class="bottom">
+	<view class="table">
+		<view class="tr bg-w">
+			<view class="th">姓名</view>
+			<view class="th">学号</view>
+			<view class="th">结束时间</view>
+			<view class="th">考勤情况</view>
+		</view>
+
+		<block wx:for="{{attendanceSheetList}}" wx:key="index">
+			<view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+				<view class="td">{{item.name}}</view>
+				<view class="td">{{item.sid}}</view>
+				<view class="td">{{item.endTime}}</view>
+				<view class="td">{{item.status == 1 ? '已打卡' : item.status == '3'?'请假':'未打卡'}}</view>
+			</view>
+			<view class="tr" wx:else>
+				<view class="td">{{item.name}}</view>
+				<view class="td">{{item.sid}}</view>
+				<view class="td">{{item.endTime}}</view>
+				<view class="td">{{item.status == 1 ? '已打卡' : item.status == '3'?'请假':'未打卡'}}</view>
+			</view>
+		</block>
+	</view>
+</view>

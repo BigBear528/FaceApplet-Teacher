@@ -80,3 +80,8 @@
 	padding: 10rpx 5rpx;
 	color: aqua;
 }
+
+.tip {
+	color: #aaa;
+	text-align: center;
+}

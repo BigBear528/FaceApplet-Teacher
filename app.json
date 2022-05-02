@@ -9,7 +9,8 @@
 		"pages/FaceRecognition/index",
 		"pages/createClass/index",
 		"pages/classItem/index",
-		"pages/LeaveManagement/index"
+		"pages/LeaveManagement/index",
+		"pages/AttendanceManagement/index"
 	],
 	"window": {
 		"backgroundTextStyle": "light",

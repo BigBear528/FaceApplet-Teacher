@@ -109,7 +109,7 @@ Page({
 						aid: this.data.clickData.aid,
 						reason: "驳回",
 						sid: this.data.clickData.sid,
-						status: -1
+						status: 0
 					}
 
 					dxRequest.post("/teacher/approvalApplication", params)

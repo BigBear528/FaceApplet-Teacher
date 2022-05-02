@@ -1,16 +1,22 @@
 <view class="top">
 
-	<view class="item" wx:for="{{leaveList}}" wx:key="index" bindtap="clickItem" data-item="{{item}}">
-		<view class="left">
-			<view class="title">
-				<view class="className">{{item.studentName}}</view>
-				<view class="classCode">{{item.time}}</view>
-			</view>
+	<view wx:if="{{leaveList.length>0}}">
+		<view class="item" wx:for="{{leaveList}}" wx:key="index" bindtap="clickItem" data-item="{{item}}">
+			<view class="left">
+				<view class="title">
+					<view class="className">{{item.studentName}}</view>
+					<view class="classCode">{{item.time}}</view>
+				</view>
 
-			<view class="flex">
-				<view class="classStatus">{{item.reason }}</view>
+				<view class="flex">
+					<view class="classStatus">{{item.reason }}</view>
+				</view>
 			</view>
 		</view>
-
 	</view>
+
+	<view wx:else class="tip">
+		暂无请假数据
+	</view>
+
 </view>
